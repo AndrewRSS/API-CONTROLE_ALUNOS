@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v0")
-public class indexController {
+public class IndexController {
 	
 	private static final String welcome = "Bem vindo a API de controle de Alunos, segue o link da documentação ...";
 	
