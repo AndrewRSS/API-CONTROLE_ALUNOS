@@ -19,7 +19,7 @@ public class AlunoService {
 	private List<Aluno> conversorAlunoDBforAluno(List<AlunoDB> alunoDB){
 		List<Aluno> listaAlunos = new ArrayList<Aluno>();
 		for(AlunoDB alunos: alunoDB) {
-			Aluno aluno = new Aluno(UUID.fromString(""),"","","", 0);
+			Aluno aluno = new Aluno("","","","", 0);
 			aluno.setExternalID(alunos.getExternalID());
 			aluno.setNome(alunos.getNome());
 			aluno.setCurso(alunos.getCurso());

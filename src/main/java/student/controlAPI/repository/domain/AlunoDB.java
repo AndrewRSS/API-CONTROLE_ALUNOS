@@ -5,16 +5,19 @@ import java.util.UUID;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="alunos")
+@Entity(name="alunos")
 public class AlunoDB {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "created_at")
 	private Timestamp createdAt;
-	private UUID externalID;
+	
+	@Column(name = "external_id")
+	private String externalID;
+	
 	private String nome;
 	private String endereco;
 	private String curso;
@@ -25,10 +28,10 @@ public class AlunoDB {
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
-	public UUID getExternalID() {
+	public String getExternalID() {
 		return externalID;
 	}
-	public void setExternalID(UUID externalID) {
+	public void setExternalID(String externalID) {
 		this.externalID = externalID;
 	}
 	public String getNome() {

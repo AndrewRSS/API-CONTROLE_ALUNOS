@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Aluno {
 	
-	public Aluno(UUID externalID, String nome, String endereco, String curso, int periodo) {
+	public Aluno(String externalID, String nome, String endereco, String curso, int periodo) {
 		this.externalID = externalID;
 		this.nome = nome;
 		this.endereco = endereco;
@@ -12,16 +12,16 @@ public class Aluno {
 		this.periodo = periodo;
 	}
 	
-	private UUID externalID;
+	private String externalID;
 	private String nome;
 	private String endereco;
 	private String curso;
 	private int periodo;
 	
-	public UUID getExternalID() {
+	public String getExternalID() {
 		return externalID;
 	}
-	public void setExternalID(UUID externalID) {
+	public void setExternalID(String externalID) {
 		this.externalID = externalID;
 	}
 	public String getNome() {
