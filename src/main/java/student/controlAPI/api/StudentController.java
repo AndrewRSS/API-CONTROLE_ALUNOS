@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import student.controlAPI.domain.Aluno;
+import student.controlAPI.domain.Student;
 import student.controlAPI.service.AlunoService;
 
 @RestController
-@RequestMapping("/api/v0/alunos") // revisar depois
-public class AlunoController {
+@RequestMapping("/api/v0/student") // revisar depois
+public class StudentController {
 
 	@Autowired
-	private AlunoService alunoService;
+	private AlunoService studentService;
 
-	@GetMapping("/lista")
-	public ResponseEntity<List<Aluno>> getAlunos() {
-		return new ResponseEntity<>(alunoService.getAlunos(), HttpStatus.OK);	
+	@GetMapping("/list")
+	public ResponseEntity<List<Student>> getStudents() {
+		return new ResponseEntity<>(studentService.searchStudants(), HttpStatus.OK);	
 	}
 }

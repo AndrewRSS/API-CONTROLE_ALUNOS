@@ -7,33 +7,33 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import student.controlAPI.domain.Aluno;
-import student.controlAPI.repository.AlunoRepository;
-import student.controlAPI.repository.domain.AlunoDB;
+import student.controlAPI.domain.Student;
+import student.controlAPI.repository.StudentRepository;
+import student.controlAPI.repository.domain.StudentDB;
 
 @Service
 public class AlunoService {
 	@Autowired
-	private AlunoRepository repo;
+	private StudentRepository repo;
 	
-	private List<Aluno> conversorAlunoDBforAluno(List<AlunoDB> alunoDB){
-		List<Aluno> listaAlunos = new ArrayList<Aluno>();
-		for(AlunoDB alunos: alunoDB) {
-			Aluno aluno = new Aluno("","","","", 0);
-			aluno.setExternalID(alunos.getExternalID());
-			aluno.setNome(alunos.getNome());
-			aluno.setCurso(alunos.getCurso());
-			aluno.setEndereco(alunos.getEndereco());
-			aluno.setPeriodo(alunos.getPeriodo());
-			listaAlunos.add(aluno);
+	private List<Student> studentDBToDtudentConverter(List<StudentDB> studentDB){
+		List<Student> studentList = new ArrayList<Student>();
+		for(StudentDB students: studentDB) {
+			Student student = new Student("","","","", 0);
+			student.setExternalID(students.getExternalID());
+			student.setNome(students.getNome());
+			student.setCurso(students.getCurso());
+			student.setEndereco(students.getEndereco());
+			student.setPeriodo(students.getPeriodo());
+			studentList.add(student);
 		}
 		
-		return listaAlunos;
+		return studentList;
 		
 	}
 	
-	public List<Aluno> getAlunos() {
-		return conversorAlunoDBforAluno(repo.findAll());
+	public List<Student> searchStudants() {
+		return studentDBToDtudentConverter(repo.findAll());
 	}
 	
 }

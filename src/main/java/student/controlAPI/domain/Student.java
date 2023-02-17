@@ -1,33 +1,23 @@
-package student.controlAPI.repository.domain;
+package student.controlAPI.domain;
 
-import java.sql.Timestamp;
 import java.util.UUID;
 
-import jakarta.persistence.*;
-
-@Entity(name="alunos")
-public class AlunoDB {
+public class Student {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	public Student(String externalID, String nome, String endereco, String curso, int periodo) {
+		this.externalID = externalID;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.curso = curso;
+		this.periodo = periodo;
+	}
 	
-	@Column(name = "created_at")
-	private Timestamp createdAt;
-	
-	@Column(name = "external_id")
 	private String externalID;
-	
 	private String nome;
 	private String endereco;
 	private String curso;
 	private int periodo;
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
+	
 	public String getExternalID() {
 		return externalID;
 	}
