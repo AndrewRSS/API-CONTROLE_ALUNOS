@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import student.controlAPI.domain.Student;
-import student.controlAPI.service.AlunoService;
+import student.controlAPI.service.StudentService;
 
 @RestController
 @RequestMapping("/api/v0/student") // revisar depois
 public class StudentController {
 
 	@Autowired
-	private AlunoService studentService;
+	private StudentService studentService;
 
 	@GetMapping("/list")
 	public ResponseEntity<List<Student>> getStudents() {

@@ -12,7 +12,7 @@ import student.controlAPI.repository.StudentRepository;
 import student.controlAPI.repository.domain.StudentDB;
 
 @Service
-public class AlunoService {
+public class StudentService {
 	@Autowired
 	private StudentRepository repo;
 	
