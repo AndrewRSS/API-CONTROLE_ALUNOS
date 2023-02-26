@@ -1,8 +1,10 @@
 package student.controlAPI.domain;
 
-import java.util.UUID;
-
 public class Student {
+	
+	public Student(){
+		super();
+	}
 	
 	public Student(String externalID, String nome, String endereco, String curso, int periodo) {
 		this.externalID = externalID;

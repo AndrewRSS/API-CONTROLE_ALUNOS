@@ -16,15 +16,10 @@ public class StudentService {
 	@Autowired
 	private StudentRepository repo;
 	
-	private List<Student> studentDBToDtudentConverter(List<StudentDB> studentDB){
+	public List<Student> studentDBToDtudentConverter(List<StudentDB> studentDB){
 		List<Student> studentList = new ArrayList<Student>();
 		for(StudentDB students: studentDB) {
-			Student student = new Student("","","","", 0);
-			student.setExternalID(students.getExternalID());
-			student.setNome(students.getNome());
-			student.setCurso(students.getCurso());
-			student.setEndereco(students.getEndereco());
-			student.setPeriodo(students.getPeriodo());
+			Student student = new Student(students.getExternalID(),students.getNome(),students.getCurso(),students.getEndereco(), students.getPeriodo());
 			studentList.add(student);
 		}
 		
@@ -32,8 +27,10 @@ public class StudentService {
 		
 	}
 	
-	public List<Student> searchStudants() {
-		return studentDBToDtudentConverter(repo.findAll());
+	public List<Student> searchStudents() {
+		List<StudentDB> studentDBList = repo.findAll();
+		
+		return studentDBToDtudentConverter(studentDBList);
 	}
 	
 }

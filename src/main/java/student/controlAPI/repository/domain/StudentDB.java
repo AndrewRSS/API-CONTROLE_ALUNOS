@@ -8,6 +8,20 @@ import jakarta.persistence.*;
 @Entity(name="alunos")
 public class StudentDB {
 	
+	public StudentDB(){
+		super();
+	}
+	
+	public StudentDB(Long id, Timestamp created_at ,String externalID, String nome, String endereco, String curso, int periodo) {
+		this.id = id;
+		this.createdAt = created_at;
+		this.externalID = externalID;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.curso = curso;
+		this.periodo = periodo;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
