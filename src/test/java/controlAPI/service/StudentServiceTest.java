@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -23,19 +24,16 @@ import student.controlAPI.service.StudentService;
 @RunWith(MockitoJUnitRunner.class)
 public class StudentServiceTest {
 	
-    @Mock
-    private StudentRepository repository;
-	
     @InjectMocks
     private StudentService service;
-
-    @Before
-    public void init() {
-        MockitoAnnotations.openMocks(this);
-    }
+    	
+    @Mock
+    private StudentRepository repository;
     
     @Test
     public void searchStudents() {
+        MockitoAnnotations.openMocks(this);
+
     	int ano = 2023;
     	int mes = 2;
     	int dia = 25;
@@ -55,6 +53,8 @@ public class StudentServiceTest {
     	for (int i = 0; i < expected.size(); i++) {
     		assertEquals(listStudent.get(i).getExternalID(), listStudentDB.get(i).getExternalID());
     	}
+        Mockito.verify(repository).findAll();
+
     }   
 }
  
